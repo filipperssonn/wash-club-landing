@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wash Club - Landningssida
 
-## Getting Started
+En modern och responsiv landningssida för Wash Club, som driver automatiska biltvättar i Skoghall, Säffle och Åmål.
 
-First, run the development server:
+## 🚀 Funktioner
+
+- **Modern design** med djupblå (#1e40af) och orange/gul (#f59e0b) färgschema
+- **Responsiv layout** som anpassar sig till alla skärmstorlekar
+- **Smooth scrolling** navigation som följer med när man scrollar
+- **Interaktiva komponenter** med hover-effekter och animationer
+- **Kontaktformulär** med validering och feedback
+- **Google Maps-integration** för platserna
+
+## 📋 Sektioner
+
+1. **Navigation** - Fast navigation som följer med vid scrollning
+2. **Hero** - Huvudsektion med CTA-knappar
+3. **Så fungerar det** - Timeline med 4 steg för biltvätten
+4. **Tjänster** - 3 kort med olika tjänster och CTA-knappar
+5. **Priser** - 3 olika tvättprogram (Bra 149kr, Bättre 199kr, Bäst 249kr)
+6. **Platser** - 3 kort som visar var Wash Club finns med Google Maps-länkar
+7. **Kontaktformulär** - Formulär med namn, email, ämne och meddelande
+8. **Footer** - 3 kolumner med kontaktinformation och länkar
+
+## 🛠️ Teknisk stack
+
+- **Next.js 15** - React framework
+- **TypeScript** - Typesäker utveckling
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **React 19** - Moderna React-hooks och funktioner
+
+## 🚀 Kom igång
+
+### Installation
 
 ```bash
+# Installera dependencies
+npm install
+
+# Starta utvecklingsservern
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Bygga för produktion
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Bygg projektet
+npm run build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Starta produktionsservern
+npm start
+```
 
-## Learn More
+## 📁 Projektstruktur
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── globals.css          # Globala stilar och färgschema
+│   ├── layout.tsx           # Root layout med metadata
+│   └── page.tsx             # Huvudsida som samlar alla komponenter
+└── components/
+    ├── Navigation.tsx       # Fast navigation
+    ├── Hero.tsx            # Hero-sektion
+    ├── HowItWorks.tsx      # Timeline-sektion
+    ├── Services.tsx        # Tjänster-kort
+    ├── Pricing.tsx         # Priser-sektion
+    ├── Locations.tsx       # Platser-kort
+    ├── ContactForm.tsx     # Kontaktformulär
+    └── Footer.tsx          # Footer-komponent
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Färgschema
 
-## Deploy on Vercel
+- **Primär blå**: #1e40af (djupblå)
+- **Accent orange/gul**: #f59e0b
+- **Bakgrund**: Vita/ljusa bakgrunder
+- **Text**: Mörkgrå för läsbarhet
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Responsiv design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Mobil-first approach
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Flexibla grid-layouts som anpassar sig automatiskt
+
+## 📞 Kontaktinformation
+
+- **Email**: info@washclub.se
+- **Telefon**: 072 742 07 00
+- **Platser**: Skoghall, Säffle, Åmål
+
+## 🔧 Utveckling
+
+### Korta förklaringar i koden
+
+Alla komponenter har tydliga kommentarer på svenska för att göra koden lätt att förstå, även för någon som inte kan koda.
+
+### Version control
+
+Projektet är konfigurerat för Git och GitHub. Använd följande kommandon:
+
+```bash
+# Lägg till ändringar
+git add .
+
+# Skapa commit
+git commit -m "Beskrivning av ändringar"
+
+# Pusha till GitHub
+git push origin main
+```
+
+## 📝 Licens
+
+© 2024 Wash Club. Alla rättigheter förbehållna.
