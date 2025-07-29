@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Integritetspolicy - Wash Club",
@@ -100,12 +101,12 @@ export default function Integritetspolicy() {
               utvecklare av webbplats och kundsystem. Vi hänvisar till vår
               utvecklare av vårt kundsystem, Logos Payment Solutions, för mer
               information om hur dina personuppgifter hanteras:{" "}
-              <a
+              <Link
                 href="https://www.logospayments.com"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 www.logospayments.com
-              </a>
+              </Link>
               .
             </p>
             <p className="text-gray-700">
@@ -168,12 +169,12 @@ export default function Integritetspolicy() {
                   dig och använda de tjänster vi tillhandahåller. Vi hänvisar
                   till vårt kundsystem Logos Payment Solutions för mer information om hur dina
                   kunduppgifter hanteras,{" "}
-                  <a
+                  <Link
                     href="https://www.logospayments.com"
                     className="text-blue-600 hover:text-blue-800 underline"
                   >
                     www.logospayments.com
-                  </a>
+                  </Link>
                   .
                 </p>
               </div>
@@ -251,8 +252,8 @@ export default function Integritetspolicy() {
                 <p className="text-gray-700">
                   På washclub.se används cookies från Google Analytics för att
                   mäta besöksstatistik. Google Analytics är en webbanalystjänst
-                  tillhandahållen av Google, Inc. ("Google"). Google Analytics
-                  använder "cookies", vilket är textfiler placerade på din
+                  tillhandahållen av Google, Inc. (&quot;Google&quot;). Google Analytics
+                  använder &quot;cookies&quot;, vilket är textfiler placerade på din
                   dator, för att hjälpa webbplatsen analysera hur användare
                   använder sidan. Informationen som genereras av cookien
                   angående ditt användande av webbplatsen kommer överföras till
@@ -270,12 +271,12 @@ export default function Integritetspolicy() {
                   Du kan också välja bort att spåras av Google Analytics i
                   framtiden genom att ladda ned och installera Google Analytics
                   Opt-out Browser Add-on för din nuvarande webbläsare:{" "}
-                  <a
+                  <Link
                     href="https://tools.google.com/dlpage/gaoptout"
                     className="text-blue-600 hover:text-blue-800 underline"
                   >
                     tools.google.com/dlpage/gaoptout
-                  </a>
+                  </Link>
                   .
                 </p>
               </div>
@@ -299,7 +300,7 @@ export default function Integritetspolicy() {
 
         {/* Back to home */}
         <div className="text-center mt-12">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
           >
@@ -317,7 +318,7 @@ export default function Integritetspolicy() {
               />
             </svg>
             Tillbaka till startsidan
-          </a>
+          </Link>
         </div>
       </div>
     </div>

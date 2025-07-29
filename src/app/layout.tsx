@@ -29,13 +29,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
-  themeColor: "#1e40af",
   openGraph: {
     title: "Wash Club - Automatiska biltvättar i Skoghall, Säffle & Åmål",
     description: "Professionella automatiska biltvättar i Skoghall, Säffle och Åmål. Snabbt, enkelt och miljövänligt.",
@@ -77,6 +70,14 @@ export const metadata: Metadata = {
       },
     ],
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#1e40af",
 };
 
 export default function RootLayout({
