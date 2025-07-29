@@ -45,7 +45,7 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex items-center justify-between relative">
           {/* Vänster navigation-länkar */}
           <div className="hidden md:flex space-x-4 flex-1 justify-end pr-8">
             <button
@@ -75,7 +75,7 @@ export default function Navigation() {
           </div>
 
           {/* Centrerad logo med klickfunktionalitet */}
-          <div className="flex items-center justify-center flex-1 md:flex-none">
+          <div className="absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none md:flex md:items-center md:justify-center">
             <button
               onClick={scrollToTop}
               className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
@@ -120,7 +120,7 @@ export default function Navigation() {
           </div>
 
           {/* Mobil-meny knapp */}
-          <div className="md:hidden flex-shrink-0">
+          <div className="md:hidden flex-shrink-0 z-10">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-blue-600 p-2 transition-all duration-200 hover:scale-110"
