@@ -45,7 +45,7 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between relative">
+        <div className="flex items-center justify-between relative h-28 md:h-32">
           {/* Vänster navigation-länkar */}
           <div className="hidden md:flex space-x-4 flex-1 justify-end pr-8">
             <button
@@ -75,7 +75,24 @@ export default function Navigation() {
           </div>
 
           {/* Centrerad logo med klickfunktionalitet */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none md:flex md:items-center md:justify-center">
+          <div className="hidden md:flex items-center justify-center flex-1">
+            <button
+              onClick={scrollToTop}
+              className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            >
+              <Image
+                src="/logo.png"
+                alt="Wash Club"
+                width={450}
+                height={135}
+                className="h-36 w-auto"
+                priority
+              />
+            </button>
+          </div>
+
+          {/* Mobil centrerad logo */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
             <button
               onClick={scrollToTop}
               className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
@@ -119,8 +136,8 @@ export default function Navigation() {
             </button>
           </div>
 
-          {/* Mobil-meny knapp */}
-          <div className="md:hidden flex-shrink-0 z-10">
+          {/* Mobil-meny knapp - behåller sin position till höger */}
+          <div className="md:hidden flex-shrink-0 z-10 ml-auto">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-blue-600 p-2 transition-all duration-200 hover:scale-110"
