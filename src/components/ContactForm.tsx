@@ -152,22 +152,22 @@ export default function ContactForm() {
                   <p className="text-lg font-medium text-gray-900">
                     Våra platser
                   </p>
-                  <div className="text-gray-600 space-y-3">
+                  <div className="text-gray-700 space-y-3">
                     <div>
                       <p className="font-medium text-gray-900">Skoghall</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-700">
                         Gamla Hovlandavägen 3, 663 32 Skoghall
                       </p>
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Säffle</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-700">
                         Järnvägsgatan 14, 661 30 Säffle
                       </p>
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Åmål</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-700">
                         Östra Åsenvägen 1, 662 35 Åmål
                       </p>
                     </div>
@@ -178,7 +178,7 @@ export default function ContactForm() {
           </div>
 
           {/* Kontaktformulär */}
-          <div className="bg-gray-50 rounded-xl p-8">
+          <div className="bg-gray-200 rounded-xl p-8 shadow-lg border border-gray-200">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Namn */}
               <div>
@@ -265,6 +265,7 @@ export default function ContactForm() {
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label={isSubmitting ? "Skickar meddelande..." : "Skicka kontaktformulär"}
               >
                 {isSubmitting ? "Skickar..." : "Skicka meddelande"}
               </button>

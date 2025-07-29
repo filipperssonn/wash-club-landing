@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://washclub.se/sitemap.xml
+
+# Crawl-delay för respektfull crawling
+Crawl-delay: 1

@@ -28,13 +28,12 @@ export default function Hero() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
             Automatiska <span className="text-blue-600">biltvättar</span>
             <br />
-            för personbilar
+            för din bil
           </h1>
 
           {/* Underrubrik */}
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Snabbt, enkelt och miljövänligt. Vi finns i Skoghall, Säffle och
-            Åmål.
+            Snabbt, enkelt och miljövänligt.
           </p>
 
           {/* Öppettider */}
@@ -64,12 +63,14 @@ export default function Hero() {
             <button
               onClick={() => scrollToSection("priser")}
               className="btn-accent text-lg px-8 py-4"
+              aria-label="Se våra priser för automatisk biltvätt"
             >
               Se våra priser
             </button>
             <button
               onClick={() => scrollToSection("så-fungerar-det")}
               className="btn-primary text-lg px-8 py-4"
+              aria-label="Läs mer om hur automatisk biltvätt fungerar"
             >
               Så fungerar det
             </button>
@@ -97,6 +98,7 @@ export default function Hero() {
         <button
           onClick={() => scrollToSection("så-fungerar-det")}
           className="animate-bounce cursor-pointer hover:scale-110 transition-transform duration-200 p-2 rounded-full hover:bg-white/20"
+          aria-label="Scrolla ner för att se hur biltvätten fungerar"
         >
           <svg
             className="w-6 h-6 text-gray-400 hover:text-blue-600 transition-colors duration-200"

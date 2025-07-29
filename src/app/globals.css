@@ -63,3 +63,22 @@ html {
 .btn-accent {
   @apply bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105;
 }
+
+/* Remove focus outlines for cleaner look */
+.btn-primary:focus,
+.btn-accent:focus,
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  @apply outline-none;
+}
+
+/* Skip to content link for screen readers */
+.skip-link {
+  @apply absolute -top-40 left-6 bg-blue-600 text-white px-4 py-2 rounded-md z-50;
+}
+
+.skip-link:focus {
+  @apply top-6;
+}
