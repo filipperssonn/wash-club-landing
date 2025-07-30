@@ -1,13 +1,50 @@
 // Huvudsida för Wash Club - landningssida
+import dynamic from "next/dynamic";
 import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
-import HowItWorks from "../components/HowItWorks";
-import Services from "../components/Services";
-import Pricing from "../components/Pricing";
-import Locations from "../components/Locations";
-import ContactForm from "../components/ContactForm";
-import FAQ from "../components/FAQ";
-import Footer from "../components/Footer";
+
+// Lazy load komponenter som inte syns direkt vid första intryck
+const HowItWorks = dynamic(() => import("../components/HowItWorks"), {
+  loading: () => <div className="py-20 bg-gray-50 flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+  </div>
+});
+
+const Services = dynamic(() => import("../components/Services"), {
+  loading: () => <div className="py-20 bg-white flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+  </div>
+});
+
+const Pricing = dynamic(() => import("../components/Pricing"), {
+  loading: () => <div className="py-20 bg-gray-50 flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+  </div>
+});
+
+const Locations = dynamic(() => import("../components/Locations"), {
+  loading: () => <div className="py-20 bg-white flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+  </div>
+});
+
+const FAQ = dynamic(() => import("../components/FAQ"), {
+  loading: () => <div className="py-20 bg-gray-50 flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+  </div>
+});
+
+const ContactForm = dynamic(() => import("../components/ContactForm"), {
+  loading: () => <div className="py-20 bg-white flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+  </div>
+});
+
+const Footer = dynamic(() => import("../components/Footer"), {
+  loading: () => <div className="py-10 bg-gray-900 flex items-center justify-center">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+  </div>
+});
 
 export default function Home() {
   const structuredData = {
