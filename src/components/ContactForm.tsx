@@ -105,7 +105,10 @@ export default function ContactForm() {
       setFormData({ name: "", email: "", subject: "", message: "" });
       setErrors({});
     } catch (error) {
-      console.error('Error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-console
+        console.error('Error:', error);
+      }
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

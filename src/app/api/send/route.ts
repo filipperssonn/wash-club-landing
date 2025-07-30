@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     const data = await resend.emails.send({
       from: 'Wash Club Webbformulär <no-reply@washclub.se>',
       to: ['info@washclub.se'],
-      reply_to: email,
+      replyTo: email,
       subject: `Nytt meddelande från ${name} via webbformulär: ${subject}`,
       html: `
         <h2>Nytt meddelande via webbformuläret</h2>
@@ -35,11 +35,14 @@ export async function POST(request: Request) {
       `,
     });
 
-    console.log('Email sent:', data);
-
     return NextResponse.json(data);
   } catch (error) {
-    console.error('Error sending email:', error);
+    // Logga felet i produktionsmiljön utan att exponera detaljer till klienten
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.error('Error sending email:', error);
+    }
+    
     return NextResponse.json(
       { error: 'Ett fel uppstod när meddelandet skulle skickas' },
       { status: 500 }
