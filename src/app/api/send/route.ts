@@ -19,16 +19,19 @@ export async function POST(request: Request) {
 
     // Skicka email med verifierad domän
     const data = await resend.emails.send({
-      from: 'Wash Club Kontaktformulär <kontakt@washclub.se>',
+      from: 'Wash Club Webbformulär <no-reply@washclub.se>',
       to: ['info@washclub.se'],
       reply_to: email,
-      subject: `${subject}`,
+      subject: `Nytt meddelande från ${name} via webbformulär: ${subject}`,
       html: `
-        <h2>Nytt meddelande från kontaktformuläret</h2>
-        <p><strong>Från:</strong> ${name} (${email})</p>
+        <h2>Nytt meddelande via webbformuläret</h2>
+        <p><strong>Avsändare:</strong> ${name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         <p><strong>Ämne:</strong> ${subject}</p>
         <p><strong>Meddelande:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p style="color: #666; font-size: 0.9em;">Detta meddelande skickades via kontaktformuläret på washclub.se. Du kan svara direkt på detta mail för att kontakta avsändaren.</p>
       `,
     });
 
