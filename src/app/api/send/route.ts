@@ -17,12 +17,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Skicka email
+    // Skicka email med verifierad domän
     const data = await resend.emails.send({
-      from: 'Wash Club Kontaktformulär <no-reply@washclub.se>',
+      from: 'Wash Club Kontaktformulär <kontakt@washclub.se>',
       to: ['info@washclub.se'],
       reply_to: email,
-      subject: `Nytt meddelande: ${subject}`,
+      subject: `${subject}`,
       html: `
         <h2>Nytt meddelande från kontaktformuläret</h2>
         <p><strong>Från:</strong> ${name} (${email})</p>
@@ -32,8 +32,11 @@ export async function POST(request: Request) {
       `,
     });
 
+    console.log('Email sent:', data);
+
     return NextResponse.json(data);
   } catch (error) {
+    console.error('Error sending email:', error);
     return NextResponse.json(
       { error: 'Ett fel uppstod när meddelandet skulle skickas' },
       { status: 500 }
