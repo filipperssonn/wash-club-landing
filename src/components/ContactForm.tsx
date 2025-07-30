@@ -89,14 +89,23 @@ export default function ContactForm() {
     }
 
     try {
-      // Här skulle normalt skickas data till en server med CSRF-token
-      // För nu simulerar vi en lyckad submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Något gick fel');
+      }
 
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
       setErrors({});
-    } catch {
+    } catch (error) {
+      console.error('Error:', error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
