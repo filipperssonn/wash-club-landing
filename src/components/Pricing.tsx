@@ -184,7 +184,7 @@ export default function Pricing() {
                   </div>
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-2xl font-bold text-blue-600">
-                      25kr
+                      40kr
                     </span>
                     <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                       Populärt
@@ -226,7 +226,7 @@ export default function Pricing() {
                       0kr
                     </span>
                     <span className="text-xs text-gray-500 bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                      Gratis
+                      Valfritt
                     </span>
                   </div>
                 </div>

@@ -17,7 +17,7 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Hur fungerar automatisk biltvätt?",
-      answer: "Du väljer tvättprogram, kör försiktigt in i anläggningen, och våra automatiska system tar hand om resten. Processen tar bara några minuter och din bil kommer ut ren och fräsch."
+      answer: "Du väljer tvättprogram, kör försiktigt in i anläggningen, och våra automatiska system tar hand om resten. Processen tar bara några minuter och din bil kommer ut ren och fin."
     },
     {
       question: "Vilka tvättprogram erbjuder ni?",
