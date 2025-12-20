@@ -192,10 +192,15 @@ export default function Pricing() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full relative opacity-75">
+                  <div className="absolute -top-3 right-4">
+                    <span className="bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      Kommer 2026
+                    </span>
+                  </div>
                   <div className="flex items-start flex-1">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-gradient-to-r from-gray-400 to-gray-500 rounded-lg flex items-center justify-center">
                         <svg
                           className="w-5 h-5 text-white"
                           fill="none"
@@ -213,7 +218,7 @@ export default function Pricing() {
                     </div>
                     <div className="ml-4 flex-1">
                       <h4 className="text-lg font-semibold text-gray-900 mb-1">
-                        Borstar
+                        Välj med eller utan borstar
                       </h4>
                       <p className="text-gray-600 text-sm mb-2">
                         Välj om du vill tvätta med eller utan borstar på våra
@@ -222,11 +227,11 @@ export default function Pricing() {
                     </div>
                   </div>
                   <div className="flex items-center justify-between mt-4">
-                    <span className="text-2xl font-bold text-amber-600">
+                    <span className="text-2xl font-bold text-gray-400">
                       0kr
                     </span>
-                    <span className="text-xs text-gray-500 bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                      Valfritt
+                    <span className="text-xs bg-amber-100 text-amber-700 px-2 py-1 rounded-full">
+                      Kommande
                     </span>
                   </div>
                 </div>

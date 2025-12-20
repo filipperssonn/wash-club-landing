@@ -96,7 +96,7 @@ export default function HowItWorks() {
             Så fungerar det
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Enkelt och snabbt - efter några minuter är din bil ren och fräsch!
+            Enkelt och snabbt - efter några minuter är din bil ren och fin!
           </p>
         </div>
 
@@ -107,9 +107,14 @@ export default function HowItWorks() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
             {steps.map((step, index) => (
-              <div key={step.id} className={`relative ${index % 2 === 0 ? 'lg:flex lg:items-start lg:justify-center' : 'lg:flex lg:items-end lg:justify-center'}`}>
+              <div
+                key={step.id}
+                className={`relative ${index % 2 === 0 ? "lg:flex lg:items-start lg:justify-center" : "lg:flex lg:items-end lg:justify-center"}`}
+              >
                 {/* Ikon och innehåll */}
-                <div className={`text-center ${index % 2 === 0 ? 'lg:pb-8' : 'lg:pt-8'} ${index % 2 === 0 ? 'lg:transform lg:-translate-y-24' : 'lg:transform lg:translate-y-24'}`}>
+                <div
+                  className={`text-center ${index % 2 === 0 ? "lg:pb-8" : "lg:pt-8"} ${index % 2 === 0 ? "lg:transform lg:-translate-y-24" : "lg:transform lg:translate-y-24"}`}
+                >
                   <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 relative z-10">
                     {step.icon}
                   </div>
@@ -122,7 +127,7 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Siffra på linjen */}
-                <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-100 border border-blue-200 text-gray-500 rounded-full flex items-center justify-center text-center text-base font-bold z-20">
+                <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-100 border border-blue-200 text-gray-500 rounded-full text-center text-base font-bold z-20">
                   <div className="flex items-center justify-center w-full h-full">
                     {step.id}
                   </div>
@@ -134,9 +139,7 @@ export default function HowItWorks() {
 
         {/* CTA-sektion */}
         <div className="text-center mt-16 lg:mt-32">
-          <p className="text-gray-600 mb-6">
-            Redo att testa? Se våra priser!
-          </p>
+          <p className="text-gray-600 mb-6">Redo att testa? Se våra priser!</p>
           <button
             onClick={() => {
               const element = document.getElementById("priser");
