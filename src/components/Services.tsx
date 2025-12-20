@@ -18,7 +18,7 @@ export default function Services() {
     {
       title: "Företagskunder",
       description:
-        "Vill du ha en samlingsfaktura? Eller enbart kunna tvätta specifika tvättar? Kontakta oss för mer information.",
+        "Vill du ha en samlingsfaktura? Eller enbart kunna tvätta förvalda program? Kontakta oss för mer information.",
       icon: (
         <svg
           className="w-12 h-12"
@@ -42,7 +42,7 @@ export default function Services() {
     {
       title: "Se våra priser",
       description:
-        "Välj mellan våra tre tvättprogram: Bra, Bättre och Bäst. Allt från grundläggande tvätt till komplett rengöring.",
+        "Välj mellan våra tre tvättprogram: Bra, Bättre eller Bäst. Allt från grundläggande tvätt till komplett rengöring. Med eller utan borstar.",
       icon: (
         <svg
           className="w-12 h-12"
@@ -54,7 +54,7 @@ export default function Services() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
           />
         </svg>
       ),
@@ -96,14 +96,14 @@ export default function Services() {
   ];
 
   return (
-    <section id="tjänster" className="py-20 bg-gray-50">
+    <section id="tjänster" className="py-20 bg-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sektionsrubrik */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Våra tjänster
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
             Vi erbjuder professionella biltvättar för alla behov
           </p>
         </div>
@@ -113,7 +113,7 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`${service.bgColor} rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full`}
+              className={`${service.bgColor} rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full border border-gray-200`}
             >
               {/* Ikon */}
               <div className={`${service.iconColor} mb-6`}>{service.icon}</div>
@@ -131,6 +131,7 @@ export default function Services() {
                 <button
                   onClick={service.ctaAction}
                   className="btn-primary w-full"
+                  aria-label={`${service.ctaText} för ${service.title.toLowerCase()}`}
                 >
                   {service.ctaText}
                 </button>
@@ -142,7 +143,7 @@ export default function Services() {
         {/* Extra information */}
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-4">
-            Alla våra tvättar är miljövänliga och använder moderna tekniker
+            Alla våra tvättar är miljövänliga och använder moderna tekniker.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <span className="flex items-center">

@@ -16,15 +16,55 @@ export default function ContactForm() {
     "idle" | "success" | "error"
   >("idle");
 
-  // Hantera input-ändringar
+  // Validering
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+
+  // Validera enskilt fält
+  const validateField = (name: string, value: string): string => {
+    switch (name) {
+      case 'name':
+        if (!value.trim()) return 'Namn är obligatoriskt';
+        if (value.trim().length < 2) return 'Namnet måste vara minst 2 tecken';
+        return '';
+      case 'email':
+        if (!value.trim()) return 'E-postadress är obligatorisk';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return 'Ogiltig e-postadress';
+        return '';
+      case 'subject':
+        if (!value.trim()) return 'Ämne är obligatoriskt';
+        if (value.trim().length < 3) return 'Ämnet måste vara minst 3 tecken';
+        return '';
+      case 'message':
+        if (!value.trim()) return 'Meddelande är obligatoriskt';
+        if (value.trim().length < 10) return 'Meddelandet måste vara minst 10 tecken';
+        return '';
+      default:
+        return '';
+    }
+  };
+
+  // Hantera input-ändringar med validering
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    
+    // Sanitera input (grundläggande XSS-skydd)
+    const sanitizedValue = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+    
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: sanitizedValue,
     }));
+
+    // Rensa fel när användaren börjar skriva
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   // Hantera formulär-submission
@@ -32,15 +72,43 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus("idle");
+    setErrors({});
+
+    // Validera alla fält
+    const newErrors: {[key: string]: string} = {};
+    Object.entries(formData).forEach(([key, value]) => {
+      const error = validateField(key, value);
+      if (error) newErrors[key] = error;
+    });
+
+    // Om det finns fel, visa dem och avbryt
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
-      // Här skulle normalt skickas data till en server
-      // För nu simulerar vi en lyckad submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Något gick fel');
+      }
 
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
+      setErrors({});
     } catch (error) {
+      if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-console
+        console.error('Error:', error);
+      }
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -152,22 +220,22 @@ export default function ContactForm() {
                   <p className="text-lg font-medium text-gray-900">
                     Våra platser
                   </p>
-                  <div className="text-gray-600 space-y-3">
+                  <div className="text-gray-700 space-y-3">
                     <div>
                       <p className="font-medium text-gray-900">Skoghall</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-700">
                         Gamla Hovlandavägen 3, 663 32 Skoghall
                       </p>
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Säffle</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-700">
                         Järnvägsgatan 14, 661 30 Säffle
                       </p>
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">Åmål</p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-700">
                         Östra Åsenvägen 1, 662 35 Åmål
                       </p>
                     </div>
@@ -178,7 +246,7 @@ export default function ContactForm() {
           </div>
 
           {/* Kontaktformulär */}
-          <div className="bg-gray-50 rounded-xl p-8">
+          <div className="bg-gray-200 rounded-xl p-8 shadow-lg border border-gray-200">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Namn */}
               <div>
@@ -195,9 +263,17 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500 ${
+                    errors.name ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   placeholder="Ditt namn"
+                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
+                {errors.name && (
+                  <p id="name-error" className="mt-2 text-sm text-red-600" role="alert">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               {/* Email */}
@@ -215,9 +291,17 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500 ${
+                    errors.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   placeholder="din.email@example.com"
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
+                {errors.email && (
+                  <p id="email-error" className="mt-2 text-sm text-red-600" role="alert">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               {/* Ämne */}
@@ -235,9 +319,17 @@ export default function ContactForm() {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500 ${
+                    errors.subject ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   placeholder="Vad gäller din fråga?"
+                  aria-describedby={errors.subject ? "subject-error" : undefined}
                 />
+                {errors.subject && (
+                  <p id="subject-error" className="mt-2 text-sm text-red-600" role="alert">
+                    {errors.subject}
+                  </p>
+                )}
               </div>
 
               {/* Meddelande */}
@@ -255,9 +347,17 @@ export default function ContactForm() {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 resize-none bg-white text-gray-900 placeholder-gray-500"
+                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 resize-none bg-white text-gray-900 placeholder-gray-500 ${
+                    errors.message ? 'border-red-500' : 'border-gray-300'
+                  }`}
                   placeholder="Skriv ditt meddelande här..."
+                  aria-describedby={errors.message ? "message-error" : undefined}
                 />
+                {errors.message && (
+                  <p id="message-error" className="mt-2 text-sm text-red-600" role="alert">
+                    {errors.message}
+                  </p>
+                )}
               </div>
 
               {/* Submit-knapp */}
@@ -265,6 +365,7 @@ export default function ContactForm() {
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label={isSubmitting ? "Skickar meddelande..." : "Skicka kontaktformulär"}
               >
                 {isSubmitting ? "Skickar..." : "Skicka meddelande"}
               </button>

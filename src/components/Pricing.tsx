@@ -10,7 +10,8 @@ export default function Pricing() {
       features: [
         "Förtvätt",
         "Högtrycksspolning",
-        "Borsttvätt med schampo",
+        "Schamponering",
+        "Högtrycksspolning / Borsttvätt",
         "Torkning",
       ],
       popular: false,
@@ -25,9 +26,10 @@ export default function Pricing() {
         "Förtvätt",
         "Högtrycksspolning",
         "Fälgtvätt",
-        "Borsttvätt med schampo",
-        "Torkning",
+        "Schamponering",
+        "Högtrycksspolning / Borsttvätt",
         "Underspolning",
+        "Torkning",
       ],
       popular: false,
       bgColor: "bg-blue-50",
@@ -40,11 +42,12 @@ export default function Pricing() {
       features: [
         "Förtvätt",
         "Högtrycksspolning",
-        "Torkning",
         "Fälgtvätt",
-        "Borsttvätt med schampo",
+        "Schamponering",
+        "Borsttvätt",
         "Underspolning",
         "Vaxpolering",
+        "Torkning",
       ],
       popular: true,
       bgColor: "bg-white",
@@ -53,7 +56,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="priser" className="py-20 bg-white">
+    <section id="priser" className="py-20 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sektionsrubrik */}
         <div className="text-center mb-16">
@@ -71,8 +74,8 @@ export default function Pricing() {
               className={`${plan.bgColor} ${
                 plan.borderColor
               } border-2 rounded-xl p-8 relative ${
-                plan.popular ? "transform scale-105 shadow-lg" : "shadow-sm"
-              } hover:shadow-md transition-all duration-300`}
+                plan.popular ? "transform scale-105 shadow-2xl" : "shadow-xl"
+              } hover:shadow-2xl transition-all duration-300`}
             >
               {/* Popular badge */}
               {plan.popular && (
@@ -119,14 +122,14 @@ export default function Pricing() {
 
         {/* Extra val */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-50 via-white to-amber-50 rounded-2xl p-8 border border-blue-200 shadow-lg relative overflow-hidden">
+          <div className="bg-gradient-to-br from-blue-100 via-white to-amber-100 rounded-2xl p-8 border border-blue-300 shadow-xl relative overflow-hidden">
             {/* Dekorativ bakgrund */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-100 to-transparent rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-100 to-transparent rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-200 to-transparent rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-amber-200 to-transparent rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
 
             <div className="relative z-10">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-amber-500 rounded-full mb-4 shadow-lg">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full mb-4 shadow-lg">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"
@@ -137,7 +140,7 @@ export default function Pricing() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                     />
                   </svg>
                 </div>
@@ -150,8 +153,8 @@ export default function Pricing() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start">
+                <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                  <div className="flex items-start flex-1">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
                         <svg
@@ -169,7 +172,7 @@ export default function Pricing() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex-1">
                       <h4 className="text-lg font-semibold text-gray-900 mb-1">
                         Extra skumavfettning / Insektsmedel
                       </h4>
@@ -177,20 +180,20 @@ export default function Pricing() {
                         Avlägsnar tuffa fläckar eller används som insektsmedel
                         beroende på årstid.
                       </p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-blue-600">
-                          25kr
-                        </span>
-                        <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
-                          Populärt
-                        </span>
-                      </div>
                     </div>
+                  </div>
+                  <div className="flex items-center justify-between mt-4">
+                    <span className="text-2xl font-bold text-blue-600">
+                      40kr
+                    </span>
+                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                      Populärt
+                    </span>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-start">
+                <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
+                  <div className="flex items-start flex-1">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
                         <svg
@@ -208,43 +211,24 @@ export default function Pricing() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex-1">
                       <h4 className="text-lg font-semibold text-gray-900 mb-1">
-                        Borstar valfritt
+                        Borstar
                       </h4>
                       <p className="text-gray-600 text-sm mb-2">
                         Välj om du vill tvätta med eller utan borstar på våra
                         tvättar Bra och Bättre.
                       </p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-amber-600">
-                          0kr
-                        </span>
-                        <span className="text-xs text-gray-500 bg-green-100 text-green-700 px-2 py-1 rounded-full">
-                          Gratis
-                        </span>
-                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-                <div className="flex items-center justify-center">
-                  <svg
-                    className="w-5 h-5 text-blue-600 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-blue-800 font-medium text-sm">
-                    Med eller utan borstar utan extra kostnad
-                  </span>
+                  <div className="flex items-center justify-between mt-4">
+                    <span className="text-2xl font-bold text-amber-600">
+                      0kr
+                    </span>
+                    <span className="text-xs text-gray-500 bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                      Valfritt
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

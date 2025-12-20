@@ -45,12 +45,13 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex items-center justify-between relative h-28 md:h-32">
           {/* Vänster navigation-länkar */}
           <div className="hidden md:flex space-x-4 flex-1 justify-end pr-8">
             <button
               onClick={() => scrollToSection("så-fungerar-det")}
               className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium hover:scale-105 relative group"
+              aria-label="Gå till sektion: Så fungerar det"
             >
               Så fungerar det
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
@@ -58,14 +59,40 @@ export default function Navigation() {
             <button
               onClick={() => scrollToSection("tjänster")}
               className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium hover:scale-105 relative group"
+              aria-label="Gå till sektion: Våra tjänster"
             >
               Tjänster
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
+            </button>
+            <button
+              onClick={() => scrollToSection("priser")}
+              className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium hover:scale-105 relative group"
+              aria-label="Gå till sektion: Våra priser"
+            >
+              Priser
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </button>
           </div>
 
           {/* Centrerad logo med klickfunktionalitet */}
-          <div className="flex items-center justify-center flex-1 md:flex-none">
+          <div className="hidden md:flex items-center justify-center flex-1">
+            <button
+              onClick={scrollToTop}
+              className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            >
+              <Image
+                src="/logo.png"
+                alt="Wash Club"
+                width={450}
+                height={135}
+                className="h-36 w-auto"
+                priority
+              />
+            </button>
+          </div>
+
+          {/* Mobil centrerad logo */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 md:hidden">
             <button
               onClick={scrollToTop}
               className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
@@ -84,33 +111,37 @@ export default function Navigation() {
           {/* Höger navigation-länkar */}
           <div className="hidden md:flex space-x-4 flex-1 justify-start pl-8">
             <button
-              onClick={() => scrollToSection("priser")}
-              className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium hover:scale-105 relative group"
-            >
-              Priser
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
-            </button>
-            <button
               onClick={() => scrollToSection("platser")}
               className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium hover:scale-105 relative group"
+              aria-label="Gå till sektion: Våra platser"
             >
               Platser
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </button>
             <button
+              onClick={() => scrollToSection("faq")}
+              className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium hover:scale-105 relative group"
+              aria-label="Gå till sektion: Vanliga frågor"
+            >
+              FAQ
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
+            </button>
+            <button
               onClick={() => scrollToSection("kontakt")}
               className="text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium hover:scale-105 relative group"
+              aria-label="Gå till sektion: Kontakta oss"
             >
               Kontakt
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
             </button>
           </div>
 
-          {/* Mobil-meny knapp */}
-          <div className="md:hidden flex-shrink-0">
+          {/* Mobil-meny knapp - behåller sin position till höger */}
+          <div className="md:hidden flex-shrink-0 z-10 ml-auto">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-blue-600 p-2 transition-all duration-200 hover:scale-110"
+              aria-label="Öppna/stäng mobilmeny"
             >
               <svg
                 className="w-6 h-6 transition-transform duration-300"
@@ -141,7 +172,7 @@ export default function Navigation() {
         {/* Mobil dropdown-meny med animation */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMobileMenuOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="bg-white/95 backdrop-blur-md shadow-xl border-t border-gray-200 rounded-b-2xl mx-2 mb-2">
@@ -149,6 +180,7 @@ export default function Navigation() {
               <button
                 onClick={() => scrollToSection("så-fungerar-det")}
                 className="flex items-center w-full text-left text-gray-700 hover:text-blue-600 transition-all duration-200 py-3 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 rounded-xl px-4 -mx-4 group"
+                aria-label="Gå till sektion: Så fungerar det"
               >
                 <svg
                   className="w-5 h-5 mr-3 text-gray-400 group-hover:text-blue-600 transition-colors duration-200"
@@ -160,7 +192,7 @@ export default function Navigation() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
                   />
                 </svg>
                 Så fungerar det
@@ -181,6 +213,7 @@ export default function Navigation() {
               <button
                 onClick={() => scrollToSection("tjänster")}
                 className="flex items-center w-full text-left text-gray-700 hover:text-blue-600 transition-all duration-200 py-3 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 rounded-xl px-4 -mx-4 group"
+                aria-label="Gå till sektion: Våra tjänster"
               >
                 <svg
                   className="w-5 h-5 mr-3 text-gray-400 group-hover:text-blue-600 transition-colors duration-200"
@@ -192,7 +225,7 @@ export default function Navigation() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                   />
                 </svg>
                 Tjänster
@@ -213,6 +246,7 @@ export default function Navigation() {
               <button
                 onClick={() => scrollToSection("priser")}
                 className="flex items-center w-full text-left text-gray-700 hover:text-blue-600 transition-all duration-200 py-3 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 rounded-xl px-4 -mx-4 group"
+                aria-label="Gå till sektion: Våra priser"
               >
                 <svg
                   className="w-5 h-5 mr-3 text-gray-400 group-hover:text-blue-600 transition-colors duration-200"
@@ -224,7 +258,7 @@ export default function Navigation() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
                   />
                 </svg>
                 Priser
@@ -245,6 +279,7 @@ export default function Navigation() {
               <button
                 onClick={() => scrollToSection("platser")}
                 className="flex items-center w-full text-left text-gray-700 hover:text-blue-600 transition-all duration-200 py-3 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 rounded-xl px-4 -mx-4 group"
+                aria-label="Gå till sektion: Våra platser"
               >
                 <svg
                   className="w-5 h-5 mr-3 text-gray-400 group-hover:text-blue-600 transition-colors duration-200"
@@ -281,8 +316,42 @@ export default function Navigation() {
                 </svg>
               </button>
               <button
+                onClick={() => scrollToSection("faq")}
+                className="flex items-center w-full text-left text-gray-700 hover:text-blue-600 transition-all duration-200 py-3 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 rounded-xl px-4 -mx-4 group"
+                aria-label="Gå till sektion: Vanliga frågor"
+              >
+                <svg
+                  className="w-5 h-5 mr-3 text-gray-400 group-hover:text-blue-600 transition-colors duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                FAQ
+                <svg
+                  className="w-4 h-4 ml-auto text-gray-300 group-hover:text-blue-600 transition-colors duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+              <button
                 onClick={() => scrollToSection("kontakt")}
                 className="flex items-center w-full text-left text-gray-700 hover:text-blue-600 transition-all duration-200 py-3 font-medium hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 rounded-xl px-4 -mx-4 group"
+                aria-label="Gå till sektion: Kontakta oss"
               >
                 <svg
                   className="w-5 h-5 mr-3 text-gray-400 group-hover:text-blue-600 transition-colors duration-200"

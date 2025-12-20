@@ -3,40 +3,40 @@ export default function Locations() {
   const locations = [
     {
       name: "Skoghall",
-      address: "Skoghall, Sverige",
+      address: "Gamla Hovlandavägen 3, 663 32 Skoghall",
       description:
-        "Vår första plats i Skoghall. Enkelt att hitta och alltid öppet.",
+        "Nära Skoghall centrum och Mörmons IP.",
       coordinates: "59.2667,13.4333", // Ungefärliga koordinater för Skoghall
       mapUrl: "https://maps.app.goo.gl/1JiARkbwKJSg4AhU8",
     },
     {
       name: "Säffle",
-      address: "Säffle, Sverige",
+      address: "Järnvägsgatan 14, 661 30 Säffle",
       description:
-        "Strategiskt placerad i Säffle för enkel åtkomst från hela området.",
+        "Centralt placerad i Säffle, granne med Willys.",
       coordinates: "59.0333,12.9333", // Ungefärliga koordinater för Säffle
       mapUrl: "https://maps.app.goo.gl/PoCoNftmjbb6cMVj7",
     },
     {
       name: "Åmål",
-      address: "Åmål, Sverige",
+      address: "Östra Åsenvägen 1, 662 35 Åmål",
       description:
-        "Vår senaste tillägg i Åmål. Modern anläggning med allt du behöver.",
+        "Lättillgänglig, granne med Willys och Sibylla.",
       coordinates: "59.0500,12.7000", // Ungefärliga koordinater för Åmål
       mapUrl: "https://maps.app.goo.gl/1iXzAJPexTAHmipi6",
     },
   ];
 
   return (
-    <section id="platser" className="py-20 bg-gray-50">
+    <section id="platser" className="py-20 bg-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sektionsrubrik */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Våra platser
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Vi finns i tre strategiskt placerade platser för din bekvämlighet
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            Vi finns i tre strategiskt placerade platser för din bekvämlighet.
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export default function Locations() {
           {locations.map((location, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200"
             >
               {/* Plats-bild (placeholder) eller karta för Säffle */}
               {location.name === "Säffle" ? (
@@ -59,6 +59,7 @@ export default function Locations() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
+                    title="Wash Club Säffle - Karta och plats"
                   ></iframe>
                 </div>
               ) : location.name === "Skoghall" ? (
@@ -72,6 +73,7 @@ export default function Locations() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
+                    title="Wash Club Skoghall - Karta och plats"
                   ></iframe>
                 </div>
               ) : location.name === "Åmål" ? (
@@ -85,6 +87,7 @@ export default function Locations() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="absolute inset-0"
+                    title="Wash Club Åmål - Karta och plats"
                   ></iframe>
                 </div>
               ) : (
@@ -166,6 +169,7 @@ export default function Locations() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  aria-label={`Visa ${location.name} på Google Maps`}
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -184,52 +188,8 @@ export default function Locations() {
         {/* Extra information */}
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-6">
-            Alla våra platser är utrustade med moderna automatiska tvättsystem
+            Alla våra platser är utrustade med moderna automatiska tvättsystem.
           </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-            <span className="flex items-center">
-              <svg
-                className="w-4 h-4 mr-2 text-green-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Automatiska system
-            </span>
-            <span className="flex items-center">
-              <svg
-                className="w-4 h-4 mr-2 text-green-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Enkel åtkomst
-            </span>
-            <span className="flex items-center">
-              <svg
-                className="w-4 h-4 mr-2 text-green-500"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Gratis parkering
-            </span>
-          </div>
         </div>
       </div>
     </section>

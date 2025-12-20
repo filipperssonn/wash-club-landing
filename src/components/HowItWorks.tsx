@@ -26,8 +26,8 @@ export default function HowItWorks() {
     },
     {
       id: 2,
-      title: "Kör försiktigt in",
-      description: "Kör försiktigt in i anläggningen enligt instruktionerna.",
+      title: "Kör in",
+      description: "Kör försiktigt in i anläggningen enligt anvisningarna.",
       icon: (
         <svg
           className="w-8 h-8"
@@ -91,66 +91,55 @@ export default function HowItWorks() {
     <section id="så-fungerar-det" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Sektionsrubrik */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 lg:mb-32">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Så fungerar det
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Enkelt och snabbt - på bara några minuter är din bil ren och fräsch
+            Enkelt och snabbt - efter några minuter är din bil ren och fräsch!
           </p>
         </div>
 
         {/* Timeline */}
         <div className="relative">
-          {/* Kontinuerlig vertikal linje */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-blue-200 h-full hidden lg:block"></div>
+          {/* Kontinuerlig horisontell linje */}
+          <div className="absolute top-1/2 transform -translate-y-1/2 h-1 bg-blue-200 w-full hidden lg:block"></div>
 
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
             {steps.map((step, index) => (
-              <div
-                key={step.id}
-                className={`flex items-center ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } flex-col`}
-              >
+              <div key={step.id} className={`relative ${index % 2 === 0 ? 'lg:flex lg:items-start lg:justify-center' : 'lg:flex lg:items-end lg:justify-center'}`}>
                 {/* Ikon och innehåll */}
-                <div
-                  className={`flex-1 ${
-                    index % 2 === 0
-                      ? "lg:text-right lg:pr-24"
-                      : "lg:text-left lg:pl-24"
-                  } text-center lg:text-left`}
-                >
-                  <div
-                    className={`bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center ${
-                      index % 2 === 0
-                        ? "mx-auto lg:ml-auto lg:mr-0"
-                        : "mx-auto lg:mx-0"
-                    } mb-4 lg:mb-0 text-blue-600`}
-                  >
+                <div className={`text-center ${index % 2 === 0 ? 'lg:pb-8' : 'lg:pt-8'} ${index % 2 === 0 ? 'lg:transform lg:-translate-y-24' : 'lg:transform lg:translate-y-24'}`}>
+                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600 relative z-10">
                     {step.icon}
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 text-lg">{step.description}</p>
+                  <p className="text-gray-600 text-sm lg:text-base">
+                    {step.description}
+                  </p>
                 </div>
 
-                {/* Tomt utrymme för jämn layout */}
-                <div className="flex-1 hidden lg:block"></div>
+                {/* Siffra på linjen */}
+                <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-100 border border-blue-200 text-gray-500 rounded-full flex items-center justify-center text-center text-base font-bold z-20">
+                  <div className="flex items-center justify-center w-full h-full">
+                    {step.id}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* CTA-sektion */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 lg:mt-32">
           <p className="text-gray-600 mb-6">
-            Redo att testa? Kom förbi en av våra platser!
+            Redo att testa? Se våra priser!
           </p>
           <button
             onClick={() => {
-              const element = document.getElementById("platser");
+              const element = document.getElementById("priser");
               if (element) {
                 const navbarHeight = 96; // Navbarens höjd (h-24 = 96px)
                 const elementPosition = element.offsetTop - navbarHeight;
@@ -161,8 +150,9 @@ export default function HowItWorks() {
               }
             }}
             className="btn-accent"
+            aria-label="Se våra priser för automatisk biltvätt"
           >
-            Se våra platser
+            Se våra priser
           </button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Integritetspolicy - Wash Club",
@@ -8,30 +9,29 @@ export const metadata: Metadata = {
 
 export default function Integritetspolicy() {
   return (
-    <div className="min-h-screen bg-gray-50 py-20">
+    <div className="min-h-screen bg-gray-200 py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Integritetspolicy
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-700">
             Wash Club Nordic AB, 559132-1277, Drottninggatan 1, 652 24 Karlstad
           </p>
         </div>
 
         {/* Content */}
-        <div className="bg-white rounded-xl shadow-sm p-8 space-y-8">
+        <div className="bg-white rounded-xl shadow-lg p-8 space-y-8 border border-gray-200">
           {/* Introduction */}
           <div>
             <p className="text-gray-700 leading-relaxed">
               Wash Club Nordic AB, 559132-1277, Drottninggatan 1, 652 24
               Karlstad, är ansvarigt för behandlingen av din personliga
-              information, och för att hålla den säker. Vi vidtar naturligtvis
-              lämpliga tekniska och organisatoriska åtgärder för att skydda dina
-              personliga uppgifter på bästa sätt, som exempelvis brandväggar,
+              information och för att hålla den säker. Vi vidtar lämpliga tekniska och organisatoriska åtgärder för att skydda dina
+              personuppgifter på bästa sätt, som exempelvis brandväggar,
               kryptering och åtkomstkontroll till våra lokaler och filer. Wash
-              Club värnar om din personliga integritet, och vi arbetar utifrån
+              Club värnar om din personliga integritet och arbetar utifrån
               gällande lagar och regler för personuppgiftsskydd.
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function Integritetspolicy() {
               Vad är en personuppgift?
             </h2>
             <p className="text-gray-700">
-              Vad som avses med en personuppgift är en uppgift som kan
+              En personuppgift är en uppgift som kan
               identifiera en individ, som till exempel namn, personnummer,
               telefonnummer, e-postadress, lokaliseringsuppgift,
               nätidentifierare, bilder eller videofilmer.
@@ -98,15 +98,15 @@ export default function Integritetspolicy() {
               Dina personuppgifter behandlas konfidentiellt och delas endast med
               tredje part om du gett oss tillåtelse att göra det, alternativt av
               juridiska skäl. Exempel på tredje part är underleverantörer som
-              utvecklare av webbplats och kundsystem. Vi hänvisar till vårt
-              utvecklaren av vårt kundsystem, NPS Service AB, för mer
+              utvecklare av webbplats och kundsystem. Vi hänvisar till vår
+              utvecklare av vårt kundsystem, Logos Payment Solutions, för mer
               information om hur dina personuppgifter hanteras:{" "}
-              <a
-                href="https://www.nps.se"
+              <Link
+                href="https://www.logospayments.com"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
-                www.nps.se
-              </a>
+                www.logospayments.com
+              </Link>
               .
             </p>
             <p className="text-gray-700">
@@ -131,7 +131,7 @@ export default function Integritetspolicy() {
               begränsad.
             </p>
             <p className="text-gray-700">
-              Wash Clubs webbplats använder sig av av SSL (Secure Socket Layer)
+              Wash Clubs webbplats använder SSL (Secure Socket Layer)
               som är ett protokoll för säker överföring av data via Internet
               (eller andra nätverk). Du behöver kontrollera att SSL inte är
               avstängt i inställningarna för webbläsaren. Det gör att den
@@ -152,9 +152,8 @@ export default function Integritetspolicy() {
                   Kontaktformulär på washclub.se:
                 </h3>
                 <p className="text-gray-700">
-                  Via ett kontaktformulär på washclub.se samlar vi in personlig
-                  data om det är så att du vill kontakta oss på något sätt
-                  (namn, mail). Vi använder de här uppgifterna för att svara på
+                  Via kontaktformuläret på washclub.se samlar vi in personlig
+                  data om du vill kontakta oss (namn, e-post). Vi använder de här uppgifterna för att svara på
                   din förfrågan. Uppgifterna från kontaktformuläret lämnas
                   aldrig vidare till tredje part utan ditt medgivande.
                 </p>
@@ -165,36 +164,18 @@ export default function Integritetspolicy() {
                   Kunduppgifter:
                 </h3>
                 <p className="text-gray-700">
-                  När du är kund hos oss behöver vi namn, mail, adress,
+                  När du är kund hos oss behöver vi namn, e-post, adress,
                   telefonnummer och registreringsnummer för att kunna kontakta
                   dig och använda de tjänster vi tillhandahåller. Vi hänvisar
-                  till vårt kundsystem NPS för mer information om hur dina
+                  till vårt kundsystem Logos Payment Solutions för mer information om hur dina
                   kunduppgifter hanteras,{" "}
-                  <a
-                    href="https://www.nps.se"
+                  <Link
+                    href="https://www.logospayments.com"
                     className="text-blue-600 hover:text-blue-800 underline"
                   >
-                    www.nps.se
-                  </a>
+                    www.logospayments.com
+                  </Link>
                   .
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  Utskick (nyheter och information):
-                </h3>
-                <p className="text-gray-700">
-                  Om du är kund till oss kommer vi att använda din mailadress
-                  för att skicka ut nyhetsbrev och information och inbjudningar.
-                  Du kan närsomhelst avsäga dig från utskick från oss genom att
-                  använda avregistreringslänken i mailet. Utskicken skickas till
-                  dig grundat på en intresseavvägning. I korthet kan man säga
-                  att det kommersiella intresset väger tyngre än den
-                  registrerades intresse av att få ha sina personuppgifter
-                  ifred. Intresset av att berätta om våra produkter och tjänster
-                  är ett sådant berättigat intresse som enligt GDPR ger rätt att
-                  behandla personuppgifter med stöd av en intresseavvägning.
                 </p>
               </div>
             </div>
@@ -217,7 +198,7 @@ export default function Integritetspolicy() {
               <li>
                 Rätt att få raderat dina personuppgifter från våra system,
                 såvida vi inte har berättigade intressen eller rättslig
-                förpliktelse att fortsätta behandla dem.
+                förpliktelse att fortsätta behandla dem
               </li>
               <li>Rätt att invända mot behandlingen av dina personuppgifter</li>
               <li>Rätt att begränsa behandlingen av dina personuppgifter</li>
@@ -244,8 +225,8 @@ export default function Integritetspolicy() {
               En cookie är en liten textfil som lagrar information på din dator.
               Detta används på många webbplatser för att ge dig som besökare
               tillgång till olika funktioner, såsom inloggning och att minnas
-              vad du gjorde senast du besökte webbplatsen. På denna webbplats,
-              använder vi cookies från för att förbättra din användarupplevelse.
+              vad du gjorde senast du besökte webbplatsen. På denna webbplats
+              använder vi cookies för att förbättra din användarupplevelse.
               Du kan inaktivera cookies genom att justera inställningarna i din
               webbläsare.
             </p>
@@ -256,11 +237,11 @@ export default function Integritetspolicy() {
                   Facebook
                 </h3>
                 <p className="text-gray-700">
-                  På washclub.se används en Facebookpixel för att mäta
-                  besöksstatistik och annonsresultat. Används för att rapportera
+                  På washclub.se används en Facebook-pixel för att mäta
+                  besöksstatistik och annonsresultat. Den används för att rapportera
                   statistik om personer som sett och interagerat med våra
                   annonser på Facebook. Pixeln kan också användas för att skapa
-                  anpassade och målgrupper för en viss annonskampanj.
+                  anpassade målgrupper för en viss annonskampanj.
                 </p>
               </div>
 
@@ -271,15 +252,15 @@ export default function Integritetspolicy() {
                 <p className="text-gray-700">
                   På washclub.se används cookies från Google Analytics för att
                   mäta besöksstatistik. Google Analytics är en webbanalystjänst
-                  tillhandahållen av Google, Inc. ("Google"). Google Analytics
-                  använder "cookies", vilket är textfiler placerade på din
+                  tillhandahållen av Google, Inc. (&quot;Google&quot;). Google Analytics
+                  använder &quot;cookies&quot;, vilket är textfiler placerade på din
                   dator, för att hjälpa webbplatsen analysera hur användare
                   använder sidan. Informationen som genereras av cookien
                   angående ditt användande av webbplatsen kommer överföras till
                   och lagras av Google på servrar i USA.
                 </p>
                 <p className="text-gray-700 mt-2">
-                  På washclub.se är IP-anonymiseringen är aktiverad. Det innebär
+                  På washclub.se är IP-anonymiseringen aktiverad. Det innebär
                   att din IP-adress kommer avkortas inom arean för
                   medlemsstaterna av den Europeiska Unionen eller andra parter
                   till Agreement on the European Economic Area. Endast i
@@ -290,12 +271,12 @@ export default function Integritetspolicy() {
                   Du kan också välja bort att spåras av Google Analytics i
                   framtiden genom att ladda ned och installera Google Analytics
                   Opt-out Browser Add-on för din nuvarande webbläsare:{" "}
-                  <a
+                  <Link
                     href="https://tools.google.com/dlpage/gaoptout"
                     className="text-blue-600 hover:text-blue-800 underline"
                   >
                     tools.google.com/dlpage/gaoptout
-                  </a>
+                  </Link>
                   .
                 </p>
               </div>
@@ -319,7 +300,7 @@ export default function Integritetspolicy() {
 
         {/* Back to home */}
         <div className="text-center mt-12">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
           >
@@ -337,7 +318,7 @@ export default function Integritetspolicy() {
               />
             </svg>
             Tillbaka till startsidan
-          </a>
+          </Link>
         </div>
       </div>
     </div>
