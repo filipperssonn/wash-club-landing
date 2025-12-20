@@ -1,3 +1,4 @@
+import type { Metadata, Viewport } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import './globals.css';
@@ -7,7 +8,14 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 const geistSans = GeistSans;
 const geistMono = GeistMono;
 
-export const metadata = {
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
+export const metadata: Metadata = {
   title: 'Wash Club - Din lokala biltvätt',
   description: 'Wash Club erbjuder professionell biltvätt i Skoghall, Säffle och Åmål. Miljövänlig och effektiv biltvätt med moderna tvätthallar.',
   keywords: 'biltvätt, wash club, automatisk biltvätt, miljövänlig biltvätt, skoghall, säffle, åmål',
@@ -18,12 +26,6 @@ export const metadata = {
     email: false,
     address: false,
     telephone: false,
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
   },
   openGraph: {
     title: 'Wash Club - Din lokala biltvätt',
