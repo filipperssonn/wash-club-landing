@@ -32,8 +32,8 @@ export default function Pricing() {
         "Torkning",
       ],
       popular: false,
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-300",
+      bgColor: "bg-white",
+      borderColor: "border-gray-200",
     },
     {
       name: "Bäst",
@@ -50,8 +50,8 @@ export default function Pricing() {
         "Torkning",
       ],
       popular: true,
-      bgColor: "bg-white",
-      borderColor: "border-gray-200",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-300",
     },
   ];
 
