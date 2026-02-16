@@ -45,7 +45,7 @@ export default function Locations() {
           {locations.map((location, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 flex flex-col"
             >
               {/* Plats-bild (placeholder) eller karta för Säffle */}
               {location.name === "Säffle" ? (
@@ -115,7 +115,7 @@ export default function Locations() {
               )}
 
               {/* Plats-information */}
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   {location.name}
                 </h3>
@@ -166,6 +166,7 @@ export default function Locations() {
                 {/* Google Maps-knapp */}
                 <a
                   href={location.mapUrl}
+                  style={{ marginTop: "auto" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"

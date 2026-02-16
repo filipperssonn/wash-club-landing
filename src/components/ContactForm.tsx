@@ -124,7 +124,7 @@ export default function ContactForm() {
             Kontakta oss
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Har du frågor eller vill boka en tid? Fyll i formuläret nedan så
+            Har du frågor? Fyll i formuläret nedan så
             återkommer vi så snart som möjligt.
           </p>
         </div>
